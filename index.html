@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#10243b" />
+    <title>甜美雪服 · 预订单</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero create-view">
+        <div class="hero-glow hero-glow-one"></div>
+        <div class="hero-glow hero-glow-two"></div>
+        <div class="hero-topline">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span>甜美雪服</span>
+        </div>
+        <div class="hero-copy">
+          <h1>预订单</h1>
+        </div>
+        <div class="hero-ticket" aria-label="当前订单概览">
+          <div>
+            <span class="ticket-label">预订日</span>
+            <strong id="heroDate">2026.11.25</strong>
+          </div>
+          <div class="ticket-divider"></div>
+          <div>
+            <span class="ticket-label">营业时间</span>
+            <strong id="storeHoursDisplay">09:00—20:00</strong>
+          </div>
+          <span class="ticket-notch ticket-notch-left"></span>
+          <span class="ticket-notch ticket-notch-right"></span>
+        </div>
+      </header>
+
+      <form id="orderForm" class="order-form create-view" novalidate>
+        <section class="form-section">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">01 / 基本信息</p>
+            </div>
+          </div>
+
+          <div class="field-grid two-columns compact-pair">
+            <div class="field field-static">
+              <label>订单类型</label>
+              <div class="static-value"><span class="static-dot"></span>预订单</div>
+            </div>
+            <div class="field field-static">
+              <label>门店</label>
+              <div class="static-value"><span class="static-dot"></span>甜美雪服</div>
+            </div>
+          </div>
+
+          <div class="field-grid two-columns compact-pair">
+            <div class="field">
+              <label for="salesPersonTrigger">销售人员</label>
+              <div class="custom-select" id="salesPersonPicker">
+                <button type="button" class="select-trigger" id="salesPersonTrigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span id="salesPersonLabel">乐乐</span>
+                  <span class="select-arrow" aria-hidden="true">⌄</span>
+                </button>
+                <div class="select-menu" id="salesPersonMenu" role="listbox" hidden>
+                  <button type="button" class="select-menu-option is-selected" data-value="乐乐" role="option" aria-selected="true">乐乐</button>
+                  <button type="button" class="select-menu-option" data-value="发财" role="option" aria-selected="false">发财</button>
+                  <button type="button" class="select-menu-option" data-value="娟娟" role="option" aria-selected="false">娟娟</button>
+                  <button type="button" class="select-menu-option" data-value="黑黑" role="option" aria-selected="false">黑黑</button>
+                  <div class="select-menu-custom">
+                    <input id="salesPersonCustom" type="text" placeholder="直接输入" autocomplete="off" aria-label="自定义销售人员" />
+                  </div>
+                </div>
+                <input type="hidden" id="salesPerson" name="salesPerson" value="乐乐" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="orderStatusTrigger">订单状态</label>
+              <div class="custom-select" id="orderStatusPicker">
+                <button type="button" class="select-trigger" id="orderStatusTrigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span id="orderStatusLabel">未付款</span>
+                  <span class="select-arrow" aria-hidden="true">⌄</span>
+                </button>
+                <div class="select-menu" id="orderStatusMenu" role="listbox" hidden>
+                  <button type="button" class="select-menu-option is-selected" data-value="未付款" role="option" aria-selected="true">未付款</button>
+                  <button type="button" class="select-menu-option" data-value="已付款" role="option" aria-selected="false">已付款</button>
+                </div>
+                <input type="hidden" id="orderStatus" name="orderStatus" value="未付款" />
+              </div>
+            </div>
+          </div>
+
+          <div class="field-grid two-columns compact-pair">
+            <div class="field date-field">
+              <label for="reserveDateTrigger">预订日期</label>
+              <input id="reserveDate" name="reserveDate" type="hidden" value="2026-11-25" />
+              <button type="button" class="date-trigger" id="reserveDateTrigger" data-date-target="reserveDate" aria-haspopup="dialog" aria-expanded="false">
+                <span id="reserveDateLabel">2026年11月25日</span>
+                <img class="datetime-calendar-icon" src="assets/calendar-icon.png" alt="" aria-hidden="true" />
+              </button>
+              <div class="date-picker-popover" id="reserveDatePicker" data-picker-target="reserveDate" role="dialog" aria-label="选择预订日期" hidden>
+                <div class="calendar-header">
+                  <button type="button" class="calendar-nav" data-calendar-prev aria-label="上一个">‹</button>
+                  <button type="button" class="calendar-title" data-calendar-title>2026年11月</button>
+                  <button type="button" class="calendar-nav" data-calendar-next aria-label="下一个">›</button>
+                </div>
+                <div class="calendar-view" data-calendar-view="days"></div>
+                <div class="calendar-footer">
+                  <button type="button" class="calendar-today" data-calendar-today>今天</button>
+                </div>
+              </div>
+            </div>
+            <div class="field datetime-field">
+              <label for="returnDateTimeDisplay">归还时间</label>
+              <input id="returnDate" name="returnDate" type="hidden" value="2026-11-25" />
+              <input id="returnDateTime" name="returnDateTime" type="hidden" value="2026-11-25T19:30" />
+              <button type="button" id="returnDateTimeDisplay" class="datetime-trigger" data-date-target="returnDateTime" aria-haspopup="dialog" aria-expanded="false"><span id="returnDateTimeLabel">2026年11月25日 19:30</span><img class="datetime-calendar-icon" src="assets/calendar-icon.png" alt="" aria-hidden="true" /></button>
+              <div class="date-picker-popover date-time-picker-popover" id="returnDateTimePicker" data-picker-target="returnDateTime" role="dialog" aria-label="选择归还时间" hidden>
+                <div class="calendar-header">
+                  <button type="button" class="calendar-nav" data-calendar-prev aria-label="上一个">‹</button>
+                  <button type="button" class="calendar-title" data-calendar-title>2026年11月</button>
+                  <button type="button" class="calendar-nav" data-calendar-next aria-label="下一个">›</button>
+                </div>
+                <div class="calendar-view" data-calendar-view="days"></div>
+                <div class="calendar-time-panel">
+                  <div class="calendar-time-selects">
+                    <button type="button" class="calendar-time-field" data-time-open aria-expanded="false" aria-label="选择小时">
+                      <span id="returnHourLabel">19</span>
+                      <span class="calendar-time-arrow" aria-hidden="true">⌄</span>
+                    </button>
+                    <span class="calendar-time-colon" aria-hidden="true">:</span>
+                    <button type="button" class="calendar-time-field" data-time-open aria-expanded="false" aria-label="选择分钟">
+                      <span id="returnMinuteLabel">30</span>
+                      <span class="calendar-time-arrow" aria-hidden="true">⌄</span>
+                    </button>
+                  </div>
+                  <div class="calendar-time-picker" data-time-picker hidden>
+                    <div class="calendar-time-column">
+                      <div class="calendar-time-column-title">时</div>
+                      <div class="calendar-time-options" id="returnHourOptions"></div>
+                    </div>
+                    <div class="calendar-time-column">
+                      <div class="calendar-time-column-title">分</div>
+                      <div class="calendar-time-options" id="returnMinuteOptions"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="calendar-footer calendar-footer-split">
+                  <button type="button" class="calendar-today" data-calendar-today>今天</button>
+                  <button type="button" class="calendar-confirm" data-save-return>确定</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">02 / 客户信息</p>
+            </div>
+          </div>
+
+          <div class="field-grid two-columns compact-pair">
+            <div class="field">
+              <label for="customerName">客户姓名 <span class="required">*</span></label>
+              <input id="customerName" name="customerName" type="text" placeholder="请输入姓名" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="phone">手机号 <span class="required">*</span></label>
+              <input id="phone" name="phone" type="tel" inputmode="numeric" placeholder="请输入手机号" autocomplete="tel" required />
+            </div>
+          </div>
+
+        </section>
+
+        <section class="form-section">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">03 / 选款与套餐</p>
+            </div>
+            <span class="selection-count" id="styleCount" hidden>0 款已选</span>
+          </div>
+
+          <div class="field">
+            <div class="label-row">
+              <label>意向款式尺码</label>
+            </div>
+            <div class="chip-grid" id="styleOptions"></div>
+          </div>
+
+          <div class="field package-field">
+            <div class="label-row">
+              <label>套餐选择</label>
+            </div>
+            <div class="chip-grid package-grid" id="packageOptions"></div>
+          </div>
+
+          <div class="field-grid two-columns compact-pair package-summary-grid">
+            <div class="field">
+              <label for="quantity">套数</label>
+              <div class="stepper-input">
+                <button type="button" class="stepper-button" data-step="-1" aria-label="减少套数">−</button>
+                <input id="quantity" name="quantity" type="number" min="1" value="1" required />
+                <button type="button" class="stepper-button" data-step="1" aria-label="增加套数">＋</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="price">价格</label>
+              <input id="price" name="price" type="text" placeholder="例如：尾款100店里付" />
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section final-section">
+          <div class="field">
+            <label for="note">备注</label>
+            <textarea id="note" name="note" rows="3"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="resetForm" class="primary-button reset-button">清空内容</button>
+            <button type="submit" class="primary-button">生成预订单 <span>↗</span></button>
+          </div>
+        </section>
+      </form>
+
+
+      <section id="settingsPage" class="settings-view" hidden>
+        <div class="settings-heading">
+          <div>
+            <h2>设置</h2>
+          </div>
+        </div>
+
+        <section class="settings-card">
+          <div class="settings-card-heading">
+            <div>
+              <h3>销售人员</h3>
+              <p>新建预订单和订单管理筛选会使用这里的人员。</p>
+            </div>
+            <span class="settings-count" id="settingsSalesPeopleCount">0 人员</span>
+          </div>
+          <div class="settings-list" id="settingsSalesPeopleList"></div>
+          <div class="settings-add-row">
+            <input id="settingsNewSalesPerson" type="text" placeholder="输入销售人员名称" />
+            <button type="button" class="outline-button" id="settingsAddSalesPerson">添加人员</button>
+          </div>
+        </section>
+
+        <section class="settings-card">
+          <div class="settings-card-heading">
+            <div>
+              <h3>意向款式和尺码</h3>
+              <p>订单中可多选款式，每个款式选择一个尺码。</p>
+            </div>
+            <span class="settings-count" id="settingsStyleCount">0 个款式</span>
+          </div>
+          <div class="settings-list" id="settingsStyleList"></div>
+          <div class="settings-add-row">
+            <input id="settingsNewStyle" type="text" placeholder="输入款式名称，例如：奶油白" />
+            <button type="button" class="outline-button" id="settingsAddStyle">添加款式</button>
+          </div>
+        </section>
+
+        <section class="settings-card">
+          <div class="settings-card-heading">
+            <div>
+              <h3>套餐选择</h3>
+              <p>订单中可多选套餐内容。</p>
+            </div>
+            <span class="settings-count" id="settingsPackageCount">0 个套餐</span>
+          </div>
+          <div class="settings-list" id="settingsPackageList"></div>
+          <div class="settings-add-row">
+            <input id="settingsNewPackage" type="text" placeholder="输入套餐名称" />
+            <button type="button" class="outline-button" id="settingsAddPackage">添加套餐</button>
+          </div>
+        </section>
+
+        <section class="settings-card">
+          <div class="settings-card-heading">
+            <div>
+              <h3>门店营业时间</h3>
+              <p>顶部概览和订单内容会使用这里的时间。</p>
+            </div>
+          </div>
+          <div class="settings-time-grid">
+            <div class="field datetime-field">
+              <label for="settingsOpenTimeTrigger">开始营业</label>
+              <input id="settingsOpenTime" type="hidden" value="09:00" />
+              <button type="button" class="time-trigger" id="settingsOpenTimeTrigger" data-time-target="settingsOpenTime" aria-haspopup="dialog" aria-expanded="false">
+                <span id="settingsOpenTimeLabel">09:00</span>
+                <span class="time-icon" aria-hidden="true"></span>
+              </button>
+              <div class="date-picker-popover time-only-picker" id="settingsOpenTimePicker" role="dialog" aria-label="选择开始营业时间" hidden>
+                <div class="calendar-time-panel">
+                  <div class="calendar-time-selects">
+                    <button type="button" class="calendar-time-field" data-time-open aria-expanded="false" aria-label="选择小时">
+                      <span id="settingsOpenHourLabel">09</span>
+                      <span class="calendar-time-arrow" aria-hidden="true">⌄</span>
+                    </button>
+                    <span class="calendar-time-colon" aria-hidden="true">:</span>
+                    <button type="button" class="calendar-time-field" data-time-open aria-expanded="false" aria-label="选择分钟">
+                      <span id="settingsOpenMinuteLabel">00</span>
+                      <span class="calendar-time-arrow" aria-hidden="true">⌄</span>
+                    </button>
+                  </div>
+                  <div class="calendar-time-picker" data-time-picker hidden>
+                    <div class="calendar-time-column">
+                      <div class="calendar-time-column-title">时</div>
+                      <div class="calendar-time-options" id="settingsOpenHourOptions"></div>
+                    </div>
+                    <div class="calendar-time-column">
+                      <div class="calendar-time-column-title">分</div>
+                      <div class="calendar-time-options" id="settingsOpenMinuteOptions"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="calendar-footer calendar-footer-split">
+                  <button type="button" class="calendar-confirm" data-save-settings-time>确定</button>
+                </div>
+              </div>
+            </div>
+            <div class="field datetime-field">
+              <label for="settingsCloseTimeTrigger">结束营业</label>
+              <input id="settingsCloseTime" type="hidden" value="20:00" />
+              <button type="button" class="time-trigger" id="settingsCloseTimeTrigger" data-time-target="settingsCloseTime" aria-haspopup="dialog" aria-expanded="false">
+                <span id="settingsCloseTimeLabel">20:00</span>
+                <span class="time-icon" aria-hidden="true"></span>
+              </button>
+              <div class="date-picker-popover time-only-picker" id="settingsCloseTimePicker" role="dialog" aria-label="选择结束营业时间" hidden>
+                <div class="calendar-time-panel">
+                  <div class="calendar-time-selects">
+                    <button type="button" class="calendar-time-field" data-time-open aria-expanded="false" aria-label="选择小时">
+                      <span id="settingsCloseHourLabel">20</span>
+                      <span class="calendar-time-arrow" aria-hidden="true">⌄</span>
+                    </button>
+                    <span class="calendar-time-colon" aria-hidden="true">:</span>
+                    <button type="button" class="calendar-time-field" data-time-open aria-expanded="false" aria-label="选择分钟">
+                      <span id="settingsCloseMinuteLabel">00</span>
+                      <span class="calendar-time-arrow" aria-hidden="true">⌄</span>
+                    </button>
+                  </div>
+                  <div class="calendar-time-picker" data-time-picker hidden>
+                    <div class="calendar-time-column">
+                      <div class="calendar-time-column-title">时</div>
+                      <div class="calendar-time-options" id="settingsCloseHourOptions"></div>
+                    </div>
+                    <div class="calendar-time-column">
+                      <div class="calendar-time-column-title">分</div>
+                      <div class="calendar-time-options" id="settingsCloseMinuteOptions"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="calendar-footer calendar-footer-split">
+                  <button type="button" class="calendar-confirm" data-save-settings-time>确定</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <button type="button" class="primary-button settings-save-button" id="saveSettings">保存设置</button>
+      </section>
+
+      <section id="orderManagement" class="management-view" hidden>
+        <div class="management-heading">
+          <div>
+            <h2>订单管理</h2>
+          </div>
+          <button type="button" class="secondary-button management-create-button" id="managementCreateButton">新建预订单</button>
+        </div>
+
+        <div class="filter-card">
+          <div class="filter-grid">
+            <div class="field filter-field">
+              <label for="filterSalesPersonTrigger">销售人员</label>
+              <div class="custom-select filter-select" id="filterSalesPersonPicker">
+                <button type="button" class="select-trigger" id="filterSalesPersonTrigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span id="filterSalesPersonLabel">全部销售人员</span>
+                  <span class="select-arrow" aria-hidden="true">⌄</span>
+                </button>
+                <div class="select-menu" id="filterSalesPersonMenu" role="listbox" hidden>
+                  <button type="button" class="select-menu-option is-selected" data-filter-option="true" data-value="" role="option" aria-selected="true">全部销售人员</button>
+                </div>
+                <input type="hidden" id="filterSalesPerson" value="" />
+              </div>
+            </div>
+            <div class="field filter-field">
+              <label for="filterOrderStatusTrigger">订单状态</label>
+              <div class="custom-select filter-select" id="filterOrderStatusPicker">
+                <button type="button" class="select-trigger" id="filterOrderStatusTrigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span id="filterOrderStatusLabel">全部状态</span>
+                  <span class="select-arrow" aria-hidden="true">⌄</span>
+                </button>
+                <div class="select-menu" id="filterOrderStatusMenu" role="listbox" hidden>
+                  <button type="button" class="select-menu-option is-selected" data-filter-option="true" data-value="" role="option" aria-selected="true">全部状态</button>
+                  <button type="button" class="select-menu-option" data-filter-option="true" data-value="未付款" role="option" aria-selected="false">未付款</button>
+                  <button type="button" class="select-menu-option" data-filter-option="true" data-value="已付款" role="option" aria-selected="false">已付款</button>
+                </div>
+                <input type="hidden" id="filterOrderStatus" value="" />
+              </div>
+            </div>
+            <div class="field filter-field">
+              <label for="filterPhone">手机号</label>
+              <input id="filterPhone" type="tel" inputmode="numeric" placeholder="输入手机号查询" />
+            </div>
+            <div class="field filter-field date-field">
+              <label for="filterReserveDateTrigger">预订日期</label>
+              <input id="filterReserveDate" type="hidden" />
+              <button type="button" class="date-trigger" id="filterReserveDateTrigger" data-date-target="filterReserveDate" aria-haspopup="dialog" aria-expanded="false">
+                <span id="filterReserveDateLabel">选择日期</span>
+                <img class="datetime-calendar-icon" src="assets/calendar-icon.png" alt="" aria-hidden="true" />
+              </button>
+              <div class="date-picker-popover" id="filterReserveDatePicker" data-picker-target="filterReserveDate" role="dialog" aria-label="选择预订日期" hidden>
+                <div class="calendar-header">
+                  <button type="button" class="calendar-nav" data-calendar-prev aria-label="上一个">‹</button>
+                  <button type="button" class="calendar-title" data-calendar-title>2026年11月</button>
+                  <button type="button" class="calendar-nav" data-calendar-next aria-label="下一个">›</button>
+                </div>
+                <div class="calendar-view" data-calendar-view="days"></div>
+                <div class="calendar-footer">
+                  <button type="button" class="calendar-today" data-calendar-today>今天</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="filter-actions">
+            <span class="filter-result" id="orderResultCount">0 条订单</span>
+            <button type="button" class="reset-button" id="clearOrderFilters">清除筛选</button>
+          </div>
+        </div>
+
+        <div id="orderList" class="order-list"></div>
+        <div id="emptyOrders" class="empty-state">
+          <div class="empty-state-icon">▤</div>
+          <strong id="emptyOrdersTitle">还没有预订单</strong>
+          <p id="emptyOrdersText">生成预订单后，订单会自动记录在这里。</p>
+          <button type="button" class="primary-button" id="emptyCreateButton">去生成预订单</button>
+        </div>
+      </section>
+    <nav class="bottom-nav" id="bottomNav" aria-label="页面导航">
+      <button type="button" class="bottom-nav-item is-active" data-view="create" aria-current="page">
+        <span class="bottom-nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="m3.5 10.7 8.5-7 8.5 7"/><path d="M5.5 9.8v9.7h13V9.8"/><path d="M9.3 19.5v-5.2h5.4v5.2"/></svg>
+        </span>
+        <span>预订单</span>
+      </button>
+      <button type="button" class="bottom-nav-item" data-view="manage">
+        <span class="bottom-nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="m8.1 4.2 3.4 3.4-5.9 5.9a2.8 2.8 0 0 1-4-4l5.9-5.9Z"/><path d="m15.9 19.8-3.4-3.4 5.9-5.9a2.8 2.8 0 0 1 4 4l-5.9 5.9Z"/><path d="m14.5 5.6 3.9 3.9M5.6 14.5l3.9 3.9"/></svg>
+        </span>
+        <span>订单管理</span>
+        <span class="bottom-nav-badge" id="orderCountBadge" hidden>0</span>
+      </button>
+      <button type="button" class="bottom-nav-item" data-view="settings">
+        <span class="bottom-nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.09a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </span>
+        <span>设置</span>
+      </button>
+    </nav>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <div class="modal-backdrop" id="previewModal" aria-hidden="true">
+      <section class="preview-modal" role="dialog" aria-modal="true" aria-labelledby="previewTitle">
+        <div class="modal-header">
+          <div>
+            <p class="section-kicker">订单已生成</p>
+            <h2 id="previewTitle">预订单预览</h2>
+          </div>
+          <button type="button" class="close-button" id="closePreview" aria-label="关闭预览">×</button>
+        </div>
+        <pre id="previewText" class="preview-text"></pre>
+        <div class="modal-actions">
+          <button type="button" class="secondary-button" id="copyOrder">复制订单</button>
+          <button type="button" class="primary-button" id="donePreview">完成</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js?v=20261126-8"></script>
+  </body>
+</html>

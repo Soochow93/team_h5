@@ -1,0 +1,170 @@
+- generic [active] [ref=f2e1]:
+  - main [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - generic [ref=f2e6]:
+        - generic [aria-hidden] [ref=f2e7]: ✦
+        - generic [ref=f2e8]: 甜美雪服
+        - generic [ref=f2e9]: SKI RENTAL DESK
+      - generic [ref=f2e10]:
+        - paragraph [ref=f2e11]: 门店预定台
+        - heading "预订单" [level=1] [ref=f2e12]
+        - paragraph [ref=f2e13]: 把到店要点先记下来，客户抵达时直接核对。
+      - generic "当前订单概览" [ref=f2e14]:
+        - generic [ref=f2e15]:
+          - generic [ref=f2e16]: 预订日
+          - strong [ref=f2e17]: 2026.12.01
+        - generic [ref=f2e19]:
+          - generic [ref=f2e20]: 营业时间
+          - strong [ref=f2e21]: 09:00—20:00
+    - generic [ref=f2e24]:
+      - generic [ref=f2e25]:
+        - paragraph [ref=f2e28]: 01 / 基本信息
+        - generic [ref=f2e29]:
+          - generic [ref=f2e30]:
+            - generic [ref=f2e31]: 订单类型
+            - generic [ref=f2e32]: 预订单
+          - generic [ref=f2e34]:
+            - generic [ref=f2e35]: 门店
+            - generic [ref=f2e36]: 甜美雪服
+        - generic [ref=f2e38]:
+          - generic [ref=f2e39]:
+            - generic [ref=f2e40]: 销售人员
+            - button "销售人员" [ref=f2e42] [cursor=pointer]:
+              - generic [ref=f2e43]: 乐乐
+              - generic [aria-hidden]: ⌄
+          - generic [ref=f2e44]:
+            - generic [ref=f2e45]: 订单状态
+            - button "订单状态" [ref=f2e47] [cursor=pointer]:
+              - generic [ref=f2e48]: 未付款
+              - generic [aria-hidden]: ⌄
+        - generic [ref=f2e49]:
+          - generic [ref=f2e50]:
+            - generic [ref=f2e51]: 预订日期
+            - button "预订日期" [ref=f2e52] [cursor=pointer]:
+              - generic [ref=f2e53]: 2026年12月1日
+          - generic [ref=f2e55]:
+            - generic [ref=f2e56]: 归还日期
+            - button "归还日期" [ref=f2e57] [cursor=pointer]:
+              - generic [ref=f2e58]: 2026年12月1日
+      - generic [ref=f2e60]:
+        - paragraph [ref=f2e63]: 02 / 客户信息
+        - generic [ref=f2e64]:
+          - generic [ref=f2e65]:
+            - generic [ref=f2e66]: 客户姓名 *
+            - textbox "客户姓名 *" [ref=f2e67]:
+              - /placeholder: 请输入姓名
+          - generic [ref=f2e68]:
+            - generic [ref=f2e69]: 手机号 *
+            - textbox "手机号 *" [ref=f2e70]:
+              - /placeholder: 请输入手机号
+      - generic [ref=f2e71]:
+        - paragraph [ref=f2e74]: 03 / 选款与套餐
+        - generic [ref=f2e75]:
+          - generic [ref=f2e76]: 意向款式尺码
+          - generic [ref=f2e78]:
+            - button "星芒粉色 选尺码" [ref=f2e80] [cursor=pointer]:
+              - generic [ref=f2e81]: 星芒粉色
+              - emphasis [ref=f2e82]: 选尺码
+              - generic [aria-hidden] [ref=f2e83]: ⌄
+            - button "天使羽翼 选尺码" [ref=f2e85] [cursor=pointer]:
+              - generic [ref=f2e86]: 天使羽翼
+              - emphasis [ref=f2e87]: 选尺码
+              - generic [aria-hidden] [ref=f2e88]: ⌄
+            - button "小黄鸡 选尺码" [ref=f2e90] [cursor=pointer]:
+              - generic [ref=f2e91]: 小黄鸡
+              - emphasis [ref=f2e92]: 选尺码
+              - generic [aria-hidden] [ref=f2e93]: ⌄
+            - button "星河蓝 选尺码" [ref=f2e95] [cursor=pointer]:
+              - generic [ref=f2e96]: 星河蓝
+              - emphasis [ref=f2e97]: 选尺码
+              - generic [aria-hidden] [ref=f2e98]: ⌄
+            - button "到店选款" [ref=f2e99] [cursor=pointer]
+          - generic [ref=f2e101]:
+            - textbox "手动录入款式，例如：奶油白" [ref=f2e102]
+            - button "添加款式" [ref=f2e103] [cursor=pointer]
+        - generic [ref=f2e104]:
+          - generic [ref=f2e105]: 套餐选择
+          - generic [ref=f2e107]:
+            - button "✓ 雪服" [ref=f2e108] [cursor=pointer]:
+              - generic [ref=f2e109]: ✓
+              - text: 雪服
+            - button "✓ 雪裤" [ref=f2e110] [cursor=pointer]:
+              - generic [ref=f2e111]: ✓
+              - text: 雪裤
+            - button "✓ 手套" [ref=f2e112] [cursor=pointer]:
+              - generic [ref=f2e113]: ✓
+              - text: 手套
+            - button "✓ 头盔" [ref=f2e114] [cursor=pointer]:
+              - generic [ref=f2e115]: ✓
+              - text: 头盔
+            - button "✓ 雪镜" [ref=f2e116] [cursor=pointer]:
+              - generic [ref=f2e117]: ✓
+              - text: 雪镜
+            - button "✓ 护臀" [ref=f2e118] [cursor=pointer]:
+              - generic [ref=f2e119]: ✓
+              - text: 护臀
+            - button "✓ 护膝" [ref=f2e120] [cursor=pointer]:
+              - generic [ref=f2e121]: ✓
+              - text: 护膝
+            - button "✓ 小乌龟护臀护膝" [ref=f2e122] [cursor=pointer]:
+              - generic [ref=f2e123]: ✓
+              - text: 小乌龟护臀护膝
+        - generic [ref=f2e124]:
+          - generic [ref=f2e125]:
+            - generic [ref=f2e126]: 套数
+            - generic [ref=f2e127]:
+              - button "减少套数" [ref=f2e128] [cursor=pointer]: −
+              - spinbutton "套数" [ref=f2e129]: "1"
+              - button "增加套数" [ref=f2e130] [cursor=pointer]: ＋
+          - generic [ref=f2e131]:
+            - generic [ref=f2e132]: 价格
+            - textbox "价格" [ref=f2e133]:
+              - /placeholder: 例如：尾款100店里付
+      - generic [ref=f2e134]:
+        - paragraph [ref=f2e137]: 04 / 到店提示
+        - generic [ref=f2e138]:
+          - generic [ref=f2e140]:
+            - strong [ref=f2e141]: 归还时间
+            - paragraph [ref=f2e142]: 2026年12月1日 19:30
+          - generic [ref=f2e143]: 可自定义
+        - generic [ref=f2e144]:
+          - generic [ref=f2e145]:
+            - generic [ref=f2e146]: 归还时间
+            - button "归还时间" [ref=f2e147] [cursor=pointer]:
+              - generic [ref=f2e148]: 2026年12月1日 19:30
+            - generic [aria-hidden]:
+              - region:
+                - generic:
+                  - generic:
+                    - paragraph: 归还安排
+                    - heading [level=2]: 选择归还时间
+                - generic:
+                  - generic:
+                    - generic: 归还日期
+                    - textbox: 2026-12-01
+                  - generic:
+                    - generic: 归还时间
+                    - textbox: 19:30
+                - generic:
+                  - button: 取消
+                  - button: 确定
+          - generic [ref=f2e150]:
+            - generic [ref=f2e151]: 门店营业时间
+            - generic [ref=f2e152]: 9:00-20:00
+        - generic [ref=f2e153]:
+          - generic [ref=f2e154]: 备注
+          - textbox "备注" [ref=f2e155]
+        - generic [ref=f2e156]:
+          - button "清空内容" [ref=f2e157] [cursor=pointer]
+          - button "生成预订单 ↗" [ref=f2e158] [cursor=pointer]
+  - status
+  - generic [aria-hidden]:
+    - dialog:
+      - generic:
+        - generic:
+          - paragraph: 订单已生成
+          - heading [level=2]: 预订单预览
+        - button: ×
+      - generic:
+        - button: 复制订单
+        - button: 完成
