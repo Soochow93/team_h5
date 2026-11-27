@@ -16,6 +16,32 @@ const returnDatePicker = document.querySelector('#returnDateTimePicker');
 let activeCalendar = null;
 const styleCount = document.querySelector('#styleCount');
 const storeHoursDisplay = document.querySelector('#storeHoursDisplay');
+const heroBackgroundImage = document.querySelector('#heroBackgroundImage');
+const HERO_BACKGROUND_IMAGES = [
+  'assets/hero-snow-mountain.jpg',
+];
+let heroBackgroundIndex = 0;
+
+function initHeroBackgroundCarousel() {
+  if (!heroBackgroundImage || !HERO_BACKGROUND_IMAGES.length) return;
+
+  const showHeroBackground = (index) => {
+    heroBackgroundImage.classList.remove('is-visible');
+    heroBackgroundImage.onload = () => heroBackgroundImage.classList.add('is-visible');
+    heroBackgroundImage.src = HERO_BACKGROUND_IMAGES[index];
+    if (heroBackgroundImage.complete && heroBackgroundImage.naturalWidth > 0) {
+      heroBackgroundImage.classList.add('is-visible');
+    }
+  };
+
+  showHeroBackground(heroBackgroundIndex);
+  if (HERO_BACKGROUND_IMAGES.length < 2) return;
+
+  window.setInterval(() => {
+    heroBackgroundIndex = (heroBackgroundIndex + 1) % HERO_BACKGROUND_IMAGES.length;
+    showHeroBackground(heroBackgroundIndex);
+  }, 6000);
+}
 
 const styleSelection = new Set();
 const packageSelection = new Set();
@@ -854,6 +880,9 @@ function buildOrderText(data) {
   const packageText = data.packages.length ? data.packages.join('、') : '待确认';
   const priceText = data.price || '待填写';
   const noteText = data.note || '';
+  const returnDateTimeText = data.returnDateTime
+    ? `${formatDate(data.returnDateTime.split('T')[0])} ${data.returnDateTime.split('T')[1] || '19:30'}`
+    : '未设置';
 
   return [
     '预订单',
@@ -863,7 +892,7 @@ function buildOrderText(data) {
     '',
     '门店：甜美雪服',
     `预订日期：${formatDate(data.reserveDate)}`,
-    `归还日期：${formatDate(data.returnDate)}`,
+    `归还时间：${returnDateTimeText}`,
     '',
     `客户姓名：${data.customerName}`,
     `手机号：${data.phone}`,
@@ -875,7 +904,6 @@ function buildOrderText(data) {
     '',
     `套餐：${packageText}`,
     '',
-    `归还时间：${data.returnDateTime ? `${formatDate(data.returnDateTime.split('T')[0])} ${data.returnDateTime.split('T')[1] || '19:30'}` : '未设置'}`,
     `门店营业时间：${getStoreHoursText('-')}`,
     '',
     `备注：${noteText}`,
@@ -924,7 +952,8 @@ function completePreview() {
 
 function clearForm() {
   form.reset();
-  setDefaultDateValues();
+  initHeroBackgroundCarousel();
+setDefaultDateValues();
   renderSalesPersonOptions();
   document.querySelector('#salesPersonTrigger').setAttribute('aria-expanded', 'false');
   document.querySelector('#salesPersonMenu').hidden = true;

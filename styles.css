@@ -51,6 +51,29 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
     radial-gradient(circle at 24% 25%, rgba(255, 255, 255, 0.25) 0 2px, transparent 3px),
     linear-gradient(145deg, #112944 0%, #0d2036 68%, #183e58 100%);
 }
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #10243b;
+}
+.hero-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10, 30, 49, 0.62), rgba(10, 30, 49, 0.24) 55%, rgba(10, 30, 49, 0.5));
+}
+.hero-background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.8s ease;
+}
+.hero-background img.is-visible { opacity: 1; }
 .hero::after {
   content: "";
   position: absolute;
@@ -604,7 +627,7 @@ input:focus, textarea:focus { border-color: var(--mint); background: #fff; box-s
     font-size: 12px;
   }
   .hero { min-height: 342px; padding-left: 20px; padding-right: 20px; }
-  .hero-ticket { right: 20px; width: calc(100% - 40px); }
+  .hero-ticket { right: 0; bottom: 35px; width: min(220px, calc(100% - 20px)); }
   .order-form {
     margin: 18px 11px 0;
     padding: 0;
